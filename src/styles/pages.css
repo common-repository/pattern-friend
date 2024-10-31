@@ -1,0 +1,117 @@
+/**
+* NOTES:
+* - Each class should start with "pf-" to avoid conflicts with other CSS.
+*/
+
+/*@import url('wordpress.components.css');*/
+
+/**
+* Variables
+*/
+:root {
+    --pf-primary-color: #51829B;
+    --pf-secondary-color: #F6995C;
+    --pf-tertiary-color: #9BB0C1;
+    --pf-extra-color: #EADFB4;
+}
+
+/**
+* Admin Panel.
+*/
+.pf-hero {
+    padding: 40px 0;
+    text-align: center;
+
+    /* Pattern source: https://css-pattern.com/ */
+    --s: 200px; /* control the size*/
+    --c1: #ffffff;
+    
+    --_g: #0000 8%,var(--c1) 0 17%,#0000 0 58%;
+    background: 
+      linear-gradient(135deg,#0000 20.5%,var(--c1) 0 29.5%,#0000 0) 0 calc(var(--s)/4),
+      linear-gradient( 45deg,var(--_g)) calc(var(--s)/2) 0,
+      linear-gradient(135deg,var(--_g),var(--c1) 0 67%,#0000 0),        
+      linear-gradient( 45deg,var(--_g),var(--c1) 0 67%,#0000 0 83%,var(--c1) 0 92%,#0000 0),
+      var(--pf-tertiary-color); 
+    background-size: var(--s) var(--s);
+}
+.pf-hero > p {
+    color: #000000;
+    padding: 0;
+    margin: 0;
+}
+.pf-hero > p.title {
+    font-size: 3em;
+    font-weight: bold;
+}
+.pf-hero > p.subtitle {
+    font-size: 2em;
+    font-weight: bold;
+}
+
+/**
+* Layout components.
+*/
+.components-panel__row.pf-align-left {
+    justify-content: flex-start;
+}
+.components-panel__row.pf-align-left > * {
+    margin: 0 10px 0 0;
+}
+.components-panel__body {
+    position: relative;
+}
+
+/**
+* Form loading overlay.
+*/
+.pf-form-loading {
+    filter: blur(2px);
+}
+.pf-form-loading-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
+.pf-form-loading-animation {
+    width: 40px;
+    aspect-ratio: 1;
+    color: var(--pf-secondary-color);
+    position: relative;
+    background:
+        conic-gradient(from 134deg at top   ,currentColor 92deg,#0000 0) top,
+        conic-gradient(from -46deg at bottom,currentColor 92deg,#0000 0) bottom;
+    background-size: 100% 50%;
+    background-repeat: no-repeat;
+}
+.pf-form-loading-animation:before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    --g:currentColor 14.5px,#0000 0 calc(100% - 14.5px),currentColor 0;
+    background:
+        linear-gradient( 45deg,var(--g)),
+        linear-gradient(-45deg,var(--g));
+     animation: l7 1.5s infinite cubic-bezier(0.3,1,0,1);
+}
+@keyframes l7 {
+    33% {
+        inset: -10px;
+        transform: rotate(0deg);
+    }
+    66% {
+        inset: -10px;
+        transform: rotate(90deg);
+    }
+    100% {
+        inset: 0;
+        transform: rotate(90deg);
+    }
+}
+

@@ -1,0 +1,65 @@
+/**
+* CSS related to front-end dynamicly generated.
+*
+* NOTES:
+* - Each class should start with "pf-" to avoid conflicts with other CSS.
+*/
+
+/**
+* Hide elements based on screen size.
+*/
+@media only screen and (max-width: /*MOBILE_MAX_THRESHOLD*/px) {
+    .pf-hide-on-mobile {
+        display: none !important;
+    }
+}
+
+@media only screen and (min-width: /*TABLET_MIN_THRESHOLD*/px) and (max-width: /*TABLET_MAX_THRESHOLD*/px) {
+    .pf-hide-on-tablet {
+        display: none !important;
+    }
+}
+
+@media only screen and (min-width: /*COMPUTER_MIN_THRESHOLD*/px) {
+    .pf-hide-on-desktop {
+        display: none !important;
+    }
+}
+
+/**
+* Hideable elements.
+*/
+.pf-hidable {
+    position: relative;
+}
+.pf-hidable.pf-hideable-closed {
+    display: none !important;
+}
+.pf-hidable-button {
+    cursor: pointer;
+    user-select: none;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    -o-user-select: none;
+
+}
+.pf-hidable-button[pf-design|="red-corner-box"] {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 30px;
+    text-align: center;
+    line-height: 30px;
+    background: rgb(255, 0, 0);
+    color: #fff;
+}
+.pf-hidable-button[pf-design|="red-corner-box"]:hover {
+    background: #8b0000;
+}
+
+/**
+* Other.
+*/
+
+/*HEADER_STICKY*/
